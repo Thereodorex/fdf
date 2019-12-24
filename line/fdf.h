@@ -36,12 +36,10 @@ typedef struct		s_coordinate	//чтобы послать что-то путно�
 /*
 **			алгоритм Брезенхайма
 */
-//void 		put_line(int x1, int x2, int y1, int y2, int colour, t_win win);	//сюда отправляю 2 t_coordinate
 
 void 		put_line(coordinate first, coordinate second, t_win win);	//сюда отправляю 2 t_coordinate
-/*
-**
-*/
+
+
 int 		parse_file(int fd, struct s_color ***all_coord);	//если стороны не равны - это валидно? -1 - неравны, 0 - ок
 int			get_max_x(char *map);								//найти x и y для массива
 int 		get_all_y(char *map);								//после - замоллочить

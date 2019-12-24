@@ -1,6 +1,5 @@
-#include "../incs/fdf.h"
+#include "header.h"
 #include <stdio.h>
-#include "../../printf/includes/ft_printf.h"
 
 /*
 **			алгоритм Брезенхайма
@@ -24,7 +23,7 @@ static int 		get_next_coordinate(int delta, int dirx, int distortion, int *x1)
 	return (1);
 }
 
-void 		put_line(coordinate first, coordinate second, t_win win)
+void 		put_line(t_coord first, t_coord second, t_param *param)
 {
 	int 	deltax;
 	int 	deltay;
@@ -39,14 +38,14 @@ void 		put_line(coordinate first, coordinate second, t_win win)
 	if (deltay < deltax)
 		while (first.x != second.x)
 		{
-			mlx_pixel_put(win.mlx_ptr, win.win_ptr, first.x, first.y, first.color);
+			mlx_pixel_put(param->mlx_ptr, param->win_ptr, first.x, first.y, first.color);
 			get_next_coordinate(deltax, y_direction, deltay, &first.y);
 			first.x += x_direction;
 		}
 	else
 		while (first.y != second.y)
 		{
-			mlx_pixel_put(win.mlx_ptr, win.win_ptr, first.x, first.y, first.color);
+			mlx_pixel_put(param->mlx_ptr, param->win_ptr, first.x, first.y, first.color);
 			(get_next_coordinate(deltay, x_direction, deltax, &first.x));
 			first.y += y_direction;
 		}

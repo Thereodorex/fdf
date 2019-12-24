@@ -10,6 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FDF_H
+#define FDF_H
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include "mlx.h"
+
+#define ESCAPE			53
+#define KEY_EXIT		53
 
 typedef struct	s_param
 {
@@ -19,3 +30,24 @@ typedef struct	s_param
 	int		current_y;
 	int		mouse_pressed;
 }				t_param;
+
+typedef struct		s_coord
+{
+	int				x;
+	int 			y;
+	int				z;
+	int 			color;
+}					t_coord;
+
+typedef struct		s_node
+{
+	t_coord					prime;
+	t_coord					current;
+	struct s_node		*right;
+	struct s_node		*down;
+}									t_node;
+
+void 		put_line(t_coord first, t_coord second, t_param *param);
+t_node		*parse_file(char *filename);
+
+#endif
