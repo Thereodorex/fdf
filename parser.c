@@ -12,20 +12,95 @@
 
 #include "header.h"
 
-void		parse_node(t_node *prev, t_node *current, char *ptr)
+char		*get_num(char *ptr, t_coord *res)
 {
+	int		sign;
 
+	res->z = 0;
+	while (*ptr == ' ')
+		ptr++;
+	if (*ptr == '-')
+	{
+		sign = -1;
+		ptr++;
+	}
+	else
+		sign = 1;
+	while (*ptr != ' ' && *ptr != '\n')
+	{
+		//   воткнуть валидацию
+		res->z = res->z * 10 + *ptr - '0';
+		//   воткнуть цвет
+		ptr++;
+	}
+	res->z *= sign;
+	return (ptr);
 }
 
-t_node		*parse_line(t_node *prev, t_node *current, char *ptr)
+char		*parse_node(t_node *left, t_node *up, t_node *current, char *ptr)
+{
+	if (!current)
+		current = (t_node *)malloc(sizeof(t_node));
+	current->down = NULL;
+	ptr = get_num(ptr, &current->current);
+	if (left)
+		left->right = current;
+	if (up)
+		up->down = current;
+	if (*ptr == '\n')
+	{
+		current->right = NULL;
+		return (ptr + 1);
+	}
+	return (parse_node(current, up ? up->right : NULL, NULL, ptr));
+}
+
+t_node		*new_node(char **s)
+{
+	t_node		*current;
+
+	current = (t_node *)malloc(sizeof(t_node));
+	//добавить x, y, z
+	current->right = NULL;
+	current->down = NULL;
+	return (current);
+}
+
+void		print_line(t_node *line)
+{
+	while (line)
+	{
+		printf("%d ", line->current.z);
+		line = line->right;
+	}
+}		
+
+void		print(t_node *head)
+{
+	while (head)
+	{
+		print_line(head);
+		printf("\n");
+		head = head->down;
+	}
+}
+
+t_node		*parse_line(t_node *up, char *ptr)
 {
 	//
 	//принять текст
 	//записать целую линию
 	//вызвать себя же: пред - список
-	current = (t_node *)malloc(sizeof(t_node));
-	current->right = NULL;
-	current->down = NULL;
+	t_node		*start_line;
+
+	start_line = (t_node *)malloc(sizeof(t_node));
+	ptr = parse_node(NULL, up, start_line, ptr);
+	print(start_line);
+	if (*ptr != '\0')
+		start_line->down = parse_line(start_line, ptr);
+	else
+		start_line->down = NULL;
+	return start_line;
 }
 
 t_node		*parse_file(char *filename)
@@ -39,8 +114,8 @@ t_node		*parse_file(char *filename)
 	fd = open(filename, O_RDONLY);
 	len = read(fd, text, 100000);
 	text[len] = '\0';
-	head = parse_line(NULL, head, (char *)text);
-	printf("%s", text);
+	head = parse_line(NULL, (char *)text);
+	// printf("%s", text);
 	close(fd);
 	return head;
 }
