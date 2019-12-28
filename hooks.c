@@ -26,9 +26,27 @@ int key_press(int keycode, t_param *param)
         param->z_rot -= 0.0174533;
     else if (keycode == 14)
         param->z_rot += 0.0174533;
+    else if (keycode == 1)
+        param->x_rot -= 0.0174533;
+    else if (keycode == 13)
+        param->x_rot += 0.0174533;
+    else if (keycode == 0)
+        param->y_rot -= 0.0174533;
+    else if (keycode == 2)
+        param->y_rot += 0.0174533;
+    else if (keycode == 123)
+        param->x_move -= 10;
+    else if (keycode == 124)
+        param->x_move += 10;
+    else if (keycode == 125)
+        param->y_move += 10;
+    else if (keycode == 126)
+        param->y_move -= 10;
     mlx_clear_window(param->mlx_ptr, param->win_ptr);
     rotate_map(param);
     print_map(param);
+    // param->x_move = 0;
+	// param->y_move = 0;
     printf("%d\n", keycode);
     return (0);
 }

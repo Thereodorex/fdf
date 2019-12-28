@@ -34,8 +34,8 @@ typedef struct		s_coord
 
 typedef struct		s_node
 {
-	t_coord					prime;
-	t_coord					current;
+	t_coord				prime;
+	t_coord				current;
 	struct s_node		*right;
 	struct s_node		*down;
 }									t_node;
@@ -45,9 +45,11 @@ typedef struct	s_param
 	void	*mlx_ptr;
 	void	*win_ptr;
 	t_node	*map;
-	int		x_rot;
-	int		y_rot;
+	double	x_rot;
+	double	y_rot;
 	double	z_rot;
+	int		x_move;
+	int		y_move;
 	// int		current_x;
 	// int		current_y;
 	// int		mouse_pressed;

@@ -54,7 +54,11 @@ int     main(int argc, char **argv)
     // put_line(f, s, &param);
     // map_init(&param, (int**) coords, 7, 7);
     // mlx_pixel_put(mlx_ptr, win_ptr, 250, 250, 0xFFFFFF);
+	param.x_rot = 0;
+	param.y_rot = 0;
 	param.z_rot = 0;
+	param.x_move = 0;
+	param.y_move = 0;
 	param.map = parse_file(argv[1]);
 	figure_scale(param.map);
 	print_map(&param);
