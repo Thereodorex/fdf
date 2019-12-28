@@ -30,7 +30,7 @@ char		*get_num(char *ptr, t_coord *res)
 	{
 		//   воткнуть валидацию
 		res->z = res->z * 10 + *ptr - '0';
-		//   воткнуть цвет
+		res->color = 0xffffff;//   воткнуть цвет
 		ptr++;
 	}
 	res->z *= sign;
@@ -44,26 +44,26 @@ char		*parse_node(t_node *left, t_node *up, t_node *current, char *ptr)
 	current->down = NULL;
 	ptr = get_num(ptr, &current->current);
 	if (left)
+	{
 		left->right = current;
+		current->current.x = left->current.x + 1;
+	}
+	else
+		current->current.x = 0;
 	if (up)
+	{
 		up->down = current;
+		current->current.y = up->current.y + 1;
+	}
+	else
+		current->current.y = 0;
 	if (*ptr == '\n')
 	{
 		current->right = NULL;
 		return (ptr + 1);
 	}
+	current->prime = current->current;
 	return (parse_node(current, up ? up->right : NULL, NULL, ptr));
-}
-
-t_node		*new_node(char **s)
-{
-	t_node		*current;
-
-	current = (t_node *)malloc(sizeof(t_node));
-	//добавить x, y, z
-	current->right = NULL;
-	current->down = NULL;
-	return (current);
 }
 
 void		print_line(t_node *line)

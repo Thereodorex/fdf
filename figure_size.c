@@ -12,8 +12,7 @@
 
 #include "header.h"
 //соррян, не добавила дефайны в хедере на размер окна
-#define SIZE_WINDOW		1000//ширина и длина окна
-#define INDENT			30;//минимальный отступ от края
+
 
 int		count_scale_x(t_node *node)
 {
@@ -41,14 +40,6 @@ int		count_scale_y(t_node *node)
 	return (y);
 }
 
-void		copy_in_prime(t_node *node)
-{
-	node->prime.x = node->current.x;
-	node->prime.y = node->current.y;
-	node->prime.z = node->current.z;
-	node->prime.color = node->prime.color;
-}
-
 void		get_count_line(t_node *node,  int interval, int indent_x, int indent_y)
 {
 	int			i;
@@ -60,9 +51,10 @@ void		get_count_line(t_node *node,  int interval, int indent_x, int indent_y)
 		node->current.x = i * interval + indent_x;
 		node->current.y = j * interval + indent_y;
 		//цепляю ноду на прайм, надо закинуть при создании, привет
-		copy_in_prime(node);
+		// copy_in_prime(node);
 		//пока цвет задаю здесь
 		node->current.color = 0xFF00FF;
+		node->prime = node->current;
 		node = node->right;
 		i++;
 	}

@@ -19,17 +19,10 @@
 #include <fcntl.h>
 #include "mlx.h"
 
+#define INDENT			30
+#define SIZE_WINDOW		1000
 #define ESCAPE			53
 #define KEY_EXIT		53
-
-typedef struct	s_param
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		current_x;
-	int		current_y;
-	int		mouse_pressed;
-}				t_param;
 
 typedef struct		s_coord
 {
@@ -47,7 +40,28 @@ typedef struct		s_node
 	struct s_node		*down;
 }									t_node;
 
+typedef struct	s_param
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_node	*map;
+	int		x_rot;
+	int		y_rot;
+	double	z_rot;
+	// int		current_x;
+	// int		current_y;
+	// int		mouse_pressed;
+}				t_param;
+
 void 		put_line(t_coord first, t_coord second, t_param *param);
 t_node		*parse_file(char *filename);
+void		figure_scale(t_node *node);
+
+void	print_map(t_param *param);
+int close_fdf(void *param);
+int key_press(int keycode, t_param *param);
+int mouse_move(int x, int y, t_param *param);
+int mouse_press(int button, int x, int y, t_param *param);
+int mouse_release(int button, int x, int y, t_param *param);
 
 #endif
