@@ -19,7 +19,7 @@
 #include <fcntl.h>
 #include "mlx.h"
 
-#define INDENT			30
+#define INDENT			15
 #define SIZE_WINDOW		1000
 #define ESCAPE			53
 #define KEY_EXIT		53
@@ -65,5 +65,6 @@ int key_press(int keycode, t_param *param);
 int mouse_move(int x, int y, t_param *param);
 int mouse_press(int button, int x, int y, t_param *param);
 int mouse_release(int button, int x, int y, t_param *param);
+char	*record_color(char *ptr, int *color);
 
 #endif

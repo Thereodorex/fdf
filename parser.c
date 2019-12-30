@@ -79,7 +79,7 @@ void		print_line(t_node *line)
 		printf("%d ", line->current.z);
 		line = line->right;
 	}
-}		
+}
 
 void		print(t_node *head)
 {
@@ -113,12 +113,12 @@ t_node		*parse_file(char *filename)
 {
 	t_node		*head;
 	int			fd;
-	char		text[100000];
+	char		text[6000000];
 	int			len;
 
 	head = NULL;
 	fd = open(filename, O_RDONLY);
-	len = read(fd, text, 100000);
+	len = read(fd, text, 6000000);
 	text[len] = '\0';
 	head = parse_line(NULL, (char *)text);
 	// printf("%s", text);

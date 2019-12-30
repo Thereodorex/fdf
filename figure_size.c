@@ -53,7 +53,6 @@ void		get_count_line(t_node *node,  int interval, int indent_x, int indent_y)
 		//цепляю ноду на прайм, надо закинуть при создании, привет
 		// copy_in_prime(node);
 		//пока цвет задаю здесь
-		node->current.color = 0xFF00FF;
 		node->prime = node->current;
 		node = node->right;
 		i++;
