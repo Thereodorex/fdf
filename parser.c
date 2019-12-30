@@ -29,8 +29,14 @@ char		*get_num(char *ptr, t_coord *res)
 	while (*ptr != ' ' && *ptr != '\n')
 	{
 		//   воткнуть валидацию
+		//   воткнуть цвет
+		if (*ptr == ',')
+		{
+			ptr = record_color(ptr, &(res->color));
+			continue ;
+		}
 		res->z = res->z * 10 + *ptr - '0';
-		res->color = 0xffffff;//   воткнуть цвет
+		res->color = 0xffffff;
 		ptr++;
 	}
 	res->z *= sign;
