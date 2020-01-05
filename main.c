@@ -16,18 +16,22 @@ void	print_map(t_param *param)
 {
 	t_node	*line;
 	t_node	*node;
+	int 		k;
 
+	k = 0;
 	line = param->map;
 	while (line)
 	{
 		node = line;
 		while (node)
 		{
+			
 			if (node->down)
 				put_line(node->current, node->down->current, param);
 			if (node->right)
 				put_line(node->current, node->right->current, param);
 			node = node->right;
+			k += 0x22222222;
 		}
 		line = line->down;
 	}

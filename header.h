@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <math.h>
 #include "mlx.h"
 
 #define INDENT			15
@@ -50,6 +51,7 @@ typedef struct	s_param
 	double	z_rot;
 	int		x_move;
 	int		y_move;
+	int		base_color;
 	// int		current_x;
 	// int		current_y;
 	// int		mouse_pressed;
@@ -66,5 +68,6 @@ int mouse_move(int x, int y, t_param *param);
 int mouse_press(int button, int x, int y, t_param *param);
 int mouse_release(int button, int x, int y, t_param *param);
 char	*record_color(char *ptr, int *color);
+void	rotate_map(t_param *param);
 
 #endif
