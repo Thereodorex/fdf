@@ -12,13 +12,33 @@
 
 #include "header.h"
 
+char		*read_coord(char *ptr, t_coord *res, int sign)
+{
+	while ((*ptr >= '0' && *ptr <= '9') || *ptr == ',')
+	{
+		if (*ptr == ',')
+		{
+			ptr = record_color(ptr, &(res->color));
+			break ;
+		}
+		res->z = res->z * 10 + *ptr - '0';
+		if (res->z > 9 && sign == 1)
+			res->color = 0x00FFFF00;
+		ptr++;
+	}
+	return (ptr);
+}
+
 char		*get_num(char *ptr, t_coord *res)
 {
 	int		sign;
 
 	res->z = 0;
+	res->color = 0x00FF00FF;
 	while (*ptr == ' ')
 		ptr++;
+	if (*ptr == '\0')
+		return (NULL);
 	if (*ptr == '-')
 	{
 		sign = -1;
@@ -26,29 +46,21 @@ char		*get_num(char *ptr, t_coord *res)
 	}
 	else
 		sign = 1;
-	while (*ptr != ' ' && *ptr != '\n')
-	{
-		//   воткнуть валидацию
-		//   воткнуть цвет
-		if (*ptr == ',')
-		{
-			ptr = record_color(ptr, &(res->color));
-			continue ;
-		}
-		res->z = res->z * 10 + *ptr - '0';
-		res->color = 0xffffff;
+	ptr = read_coord(ptr, res, sign);
+	if (*ptr != ' ' && *ptr != '\n')
+		return (NULL);
+	while (*ptr == ' ')
 		ptr++;
-	}
 	res->z *= sign;
 	return (ptr);
 }
 
 char		*parse_node(t_node *left, t_node *up, t_node *current, char *ptr)
 {
-	if (!current)
-		current = (t_node *)malloc(sizeof(t_node));
+	current = !(current) ? (t_node *)malloc(sizeof(t_node)) : current;
 	current->down = NULL;
-	ptr = get_num(ptr, &current->current);
+	if (!(ptr = get_num(ptr, &current->current)))
+		return (NULL);//утечки!!!
 	if (left)
 	{
 		left->right = current;
@@ -72,56 +84,38 @@ char		*parse_node(t_node *left, t_node *up, t_node *current, char *ptr)
 	return (parse_node(current, up ? up->right : NULL, NULL, ptr));
 }
 
-void		print_line(t_node *line)
-{
-	while (line)
-	{
-		printf("%d ", line->current.z);
-		line = line->right;
-	}
-}
-
-void		print(t_node *head)
-{
-	while (head)
-	{
-		print_line(head);
-		printf("\n");
-		head = head->down;
-	}
-}
-
 t_node		*parse_line(t_node *up, char *ptr)
 {
-	//
-	//принять текст
-	//записать целую линию
-	//вызвать себя же: пред - список
 	t_node		*start_line;
 
+	if (!ptr)
+		return (NULL);
 	start_line = (t_node *)malloc(sizeof(t_node));
-	ptr = parse_node(NULL, up, start_line, ptr);
-	print(start_line);
+	if (!(ptr = parse_node(NULL, up, start_line, ptr)))
+		return (NULL);
 	if (*ptr != '\0')
-		start_line->down = parse_line(start_line, ptr);
+	{
+		if (!(start_line->down = parse_line(start_line, ptr)))
+			return (NULL);
+	}
 	else
 		start_line->down = NULL;
-	return start_line;
+	return (start_line);
 }
 
 t_node		*parse_file(char *filename)
 {
 	t_node		*head;
 	int			fd;
-	char		text[6000000];
+	char		*text;
 	int			len;
 
 	head = NULL;
 	fd = open(filename, O_RDONLY);
-	len = read(fd, text, 6000000);
-	text[len] = '\0';
-	head = parse_line(NULL, (char *)text);
-	// printf("%s", text);
+	if (fd < 3 || !(text = read_file(fd)))
+		fdf_error(NO_ARG);
+	if (!(head = parse_line(NULL, text)))
+		fdf_error(ERROR_MAP);
 	close(fd);
-	return head;
+	return (head);
 }

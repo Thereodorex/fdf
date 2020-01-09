@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   record_color.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hchau <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/10 01:14:06 by hchau             #+#    #+#             */
+/*   Updated: 2020/01/10 01:14:08 by hchau            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "header.h"
 
 static int		get_color(char *ptr)
 {
 	int		res;
-	
+	int		count;
+
+	count = 0;
 	while (*ptr && *ptr != ' ')
 	{
 		if (*ptr >= '0' && *ptr <= '9')
@@ -16,15 +29,16 @@ static int		get_color(char *ptr)
 		else
 			break ;
 		ptr--;
+		count++;
 	}
-	if (*ptr != 'x' || *(ptr - 1) != '0')
+	if (*ptr != 'x' || *(ptr - 1) != '0' || count > 8)
 		return (-1);
 	return (res);
 }
 
-char	*record_color(char *ptr, int *color)
+char			*record_color(char *ptr, int *color)
 {
-	int 	res;
+	int		res;
 	char	*to_return;
 
 	res = 0;

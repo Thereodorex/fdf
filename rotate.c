@@ -12,78 +12,44 @@
 
 #include "header.h"
 
-// void	rotate_node(t_node *node, t_param *param)
-// {
-// 	int		x;
-// 	int		y;
+void	scale_all(t_node *node, t_param *param)
+{
+	node->current.x = (node->prime.x * param->scale.x + param->indent.x)
+			- SIZE_WINDOW / 2;
+	node->current.y = (node->prime.y * param->scale.y + param->indent.y)
+			- SIZE_WINDOW / 2;
+	node->current.z = node->prime.z * param->scale.z;
+}
 
-// 	x = node->prime.x - SIZE_WINDOW / 2;
-// 	y = node->prime.y - SIZE_WINDOW / 2;
-// 	node->current.x = (double)x * cos(param->z_rot) - (double)y * sin(param->z_rot) + SIZE_WINDOW / 2;
-// 	node->current.y = (double)x * sin(param->z_rot) + (double)y * cos(param->z_rot) + SIZE_WINDOW / 2;
-// }
-
-// void	rotate_node(t_node *node, t_param *param)
-// {
-// 	int		x;
-// 	int		y;
-// 	int		z;
-
-// 	x = node->prime.x - SIZE_WINDOW / 2;
-// 	y = node->prime.y - SIZE_WINDOW / 2;
-// 	z = node->prime.z;
-
-// 	node->current.x = x;
-// 	node->current.y = y;
-
-
-// 	// node->current.y = (double)y * cos(param->x_rot) + (double)z * sin(param->x_rot);
-// 	// node->current.z = (double)z * cos(param->x_rot) - (double)y * sin(param->x_rot);	
-
-// 	// node->current.x = (double)x * cos(param->y_rot) + (double)node->current.z * sin(param->y_rot);
-// 	// node->current.z = (double)node->current.z * cos(param->y_rot) - (double)x * sin(param->y_rot);
-
-// 	node->current.x = (double)node->current.x * cos(param->z_rot) - (double)node->current.y  * sin(param->z_rot) + SIZE_WINDOW / 2;
-// 	node->current.y = (double)x * sin(param->z_rot) + (double)y  * cos(param->z_rot) + SIZE_WINDOW / 2;
-
-// 	node->current.x += param->x_move;
-// 	node->current.y += param->y_move;
-
-// }
+void	prepare_cur_point(double *x, double *y, double *z, t_coord *coord)
+{
+	*x = (double)coord->x;
+	*y = (double)coord->y;
+	*z = (double)coord->z;
+}
 
 void	rotate_node(t_node *node, t_param *param)
 {
-	int		x;
-	int		y;
-	int		z;
+	double		x;
+	double		y;
+	double		z;
 
-	x = node->prime.x - SIZE_WINDOW / 2;
-	y = node->prime.y - SIZE_WINDOW / 2;
-	z = node->prime.z;
-
-	node->current.x = x;
-	node->current.y = y;
-
-	node->current.y = (double)y * cos(param->x_rot) + (double)z * sin(param->x_rot);
-	node->current.z = (double)z * cos(param->x_rot) - (double)y * sin(param->x_rot);
-
-	y = node->current.y;
-	z = node->current.z;
-		x = node->current.x;
-
-	node->current.x = (double)x * cos(param->z_rot) - (double)y  * sin(param->z_rot);
-	node->current.y = (double)x * sin(param->z_rot) + (double)y  * cos(param->z_rot);
-
-	x = node->current.x;
-	y = node->current.y;
-	z = node->current.z;
-
-	node->current.x = (double)x * cos(param->y_rot) + (double)z * sin(param->y_rot);
-	node->current.z = (double)z * cos(param->y_rot) - (double)x * sin(param->y_rot);
-
+	scale_all(node, param);
+	prepare_cur_point(&x, &y, &z, &node->current);
+	node->current.y = y * cos(param->x_rot) + z * sin(param->x_rot);
+	node->current.z = z * cos(param->x_rot) - y * sin(param->x_rot);
+	prepare_cur_point(&x, &y, &z, &node->current);
+	node->current.x = x * cos(param->z_rot) - y * sin(param->z_rot);
+	node->current.y = x * sin(param->z_rot) + y * cos(param->z_rot);
+	prepare_cur_point(&x, &y, &z, &node->current);
+	node->current.x = x * cos(param->y_rot) + z * sin(param->y_rot);
+	node->current.z = z * cos(param->y_rot) - x * sin(param->y_rot);
 	node->current.x += param->x_move + SIZE_WINDOW / 2;
 	node->current.y += param->y_move + SIZE_WINDOW / 2;
-
+	if (node->prime.z == 0 || param->high_base_color == -1)
+		node->current.color = node->prime.color + param->base_color;
+	if (node->prime.z != 0 && param->high_base_color != -1)
+		node->current.color = node->prime.color + param->high_base_color;
 }
 
 void	rotate_map(t_param *param)
