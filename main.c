@@ -53,6 +53,8 @@ int     main(int argc, char **argv)
 {
     t_param     param;
 
+    if (argc == 1)
+    	fdf_error(NO_ARG);
     open_win(&param, argv[1]);
     create_img(&param);
 	figure_scale(param.map, &param.indent, &param.scale);

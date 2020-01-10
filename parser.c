@@ -113,7 +113,7 @@ t_node		*parse_file(char *filename)
 	head = NULL;
 	fd = open(filename, O_RDONLY);
 	if (fd < 3 || !(text = read_file(fd)))
-		fdf_error(NO_ARG);
+		fdf_error(NOT_A_MAP);
 	if (!(head = parse_line(NULL, text)))
 		fdf_error(ERROR_MAP);
 	close(fd);

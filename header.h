@@ -31,6 +31,8 @@
 */
 # define NO_ARG			1
 # define ERROR_MAP		2
+# define MISSING_MAP	3
+# define NOT_A_MAP		4
 
 typedef struct		s_coord
 {
@@ -107,6 +109,7 @@ int					key_rot(int keycode, t_param *param);
 int					key_move(int keycode, t_param *param);
 int					key_color(int keycode, t_param *param);
 int					key_default(int keycode, t_param *param);
+int					mouse_scroll(int button,int x, int y, t_param *param);
 /*
 **		error manangement
 */

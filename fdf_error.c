@@ -24,6 +24,10 @@ void		fdf_error(int code)
 		write(1, "fdf: missing map argument\nusage: ./fdf [filename]\n", 50);
 	else if (code == ERROR_MAP)
 		write(1, "fdf: error: invalid map\nusage: ./fdf [filename]\n", 48);
+	else if (code == MISSING_MAP)
+		write(1, "fdf: error: missing map\nusage: ./fdf [filename]\n", 48);
+	else if (code == NOT_A_MAP)
+		write(1, "fdf: error: argument is not a map\nusage: ./fdf [filename]\n", 58);
 	else
 		return ;
 	exit(0);
