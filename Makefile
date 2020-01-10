@@ -1,8 +1,8 @@
 NAME = fdf
 CC = gcc
-SRC_DIR = ./
+SRC_DIR = ./src/
 OBJ_DIR = obj/
-INC_DIRS = -I ./ -I /usr/local/include
+INC_DIRS = -I ./includes/ -I /usr/local/include
 INC_LIB = -L /usr/local/lib/
 FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
 

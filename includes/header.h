@@ -75,9 +75,6 @@ typedef struct		s_param
 	t_coord			indent;
 	int				max_size;
 	t_image			*image;
-	// int		current_x;
-	// int		current_y;
-	// int		mouse_pressed;
 }					t_param;
 
 void				put_line(t_coord first, t_coord second, t_param *prm);

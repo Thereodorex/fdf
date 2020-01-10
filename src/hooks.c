@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../includes/header.h"
 
 int		key_press(int keycode, t_param *param)
 {
@@ -25,7 +25,7 @@ int		key_press(int keycode, t_param *param)
 	return (0);
 }
 
-int		mouse_scroll(int button,int x, int y, t_param *param)//неплохо бы ещё внутрь по позиции мыши погружаться
+int		mouse_scroll(int button, int x, int y, t_param *param)
 {
 	if (button == 5)
 	{
@@ -37,7 +37,6 @@ int		mouse_scroll(int button,int x, int y, t_param *param)//неплохо бы 
 		param->scale.y--;
 		param->scale.x--;
 	}
-//	param->scale.z++;
 	mlx_clear_window(param->mlx_ptr, param->win_ptr);
 	rotate_map(param);
 	print_map(param);
@@ -46,27 +45,15 @@ int		mouse_scroll(int button,int x, int y, t_param *param)//неплохо бы 
 
 int		mouse_move(int x, int y, t_param *param)
 {
-	// if (param->mouse_pressed)
-	//     mlx_pixel_put(param->mlx_ptr, param->win_ptr, x, y, 0xFFFFFF);
-		// printf("%d   %d\n", x, y);
 	return (0);
 }
 
 int		mouse_press(int button, int x, int y, t_param *param)
 {
-//	if (button == 4)
-//		printf("ff");
-	// if (button == 1) {
-	//     param->mouse_pressed = 1;
-	//     // mlx_pixel_put(param->mlx_ptr, param->win_ptr, x, y, 0xFFFFFF);
-	// }
 	return (0);
 }
 
 int		mouse_release(int button, int x, int y, t_param *param)
 {
-	// if (button == 1) {
-	//     param->mouse_pressed = 0;
-	// }
 	return (0);
 }

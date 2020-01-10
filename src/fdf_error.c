@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../includes/header.h"
 
-int		close_fdf(void *param)
+int			close_fdf(void *param)
 {
 	exit(0);
-	return (0);
 }
 
 void		fdf_error(int code)

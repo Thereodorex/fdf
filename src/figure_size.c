@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../includes/header.h"
 
 int		get_count_line(t_node *node, int interval, int indent_x, int indent_y)
 {

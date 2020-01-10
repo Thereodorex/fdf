@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../includes/header.h"
 
 char		*read_coord(char *ptr, t_coord *res, int sign)
 {
@@ -60,7 +60,7 @@ char		*parse_node(t_node *left, t_node *up, t_node *current, char *ptr)
 	current = !(current) ? (t_node *)malloc(sizeof(t_node)) : current;
 	current->down = NULL;
 	if (!(ptr = get_num(ptr, &current->prime)))
-		return (NULL);//утечки!!!
+		return (NULL);
 	if (left)
 	{
 		left->right = current;

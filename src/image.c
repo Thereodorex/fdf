@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../includes/header.h"
 
 void		ft_bzero(void *s, size_t n)
 {
@@ -49,8 +49,8 @@ void		create_img(t_param *param)
 	param->image->image = mlx_new_image(param->mlx_ptr,
 											SIZE_WINDOW, SIZE_WINDOW);
 	param->image->data_addr = mlx_get_data_addr(param->image->image,
-											  &(param->image->bits_per_pixel),
-											  &(param->image->size_line),
-											  &(param->image->endian));
+											&(param->image->bits_per_pixel),
+											&(param->image->size_line),
+											&(param->image->endian));
 	clear_image(param->image);
 }
