@@ -53,15 +53,27 @@ int		key_move(int keycode, t_param *param)
 	return (1);
 }
 
+int		key_default(int keycode, t_param *param)
+{
+	if (keycode != 49)
+		return (0);
+	param->x_move = 0;
+	param->y_move = 0;
+	param->scale.z = count_scale_z(param->map, SIZE_WINDOW);
+	param->high_base_color = param->high_base_color == -1 ? -1 : 0;
+	param->base_color = 0;
+	param->x_rot = 0;
+	param->y_rot = 0;
+	param->z_rot = 0;
+	return (1);
+}
+
 int		key_size(int keycode, t_param *param)
 {
 	if (keycode == 69)
 	{
 		param->scale.y++;
 		param->scale.x++;
-		param->scale.z = count_scale_z(param->map,
-				param->max_size += count_scale_x(param->map));
-//		param->scale.z++; рассчитать z из нынешней длины фигуры
 	}
 	else if (keycode == 78)
 	{
@@ -69,9 +81,6 @@ int		key_size(int keycode, t_param *param)
 		{
 			param->scale.x--;
 			param->scale.y--;
-			param->scale.z = count_scale_z(param->map,
-					param->max_size -= count_scale_x(param->map));
-//			param->scale.z--;
 		}
 	}
 	else if (keycode == 6)

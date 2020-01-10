@@ -106,6 +106,7 @@ int					key_size(int keycode, t_param *param);
 int					key_rot(int keycode, t_param *param);
 int					key_move(int keycode, t_param *param);
 int					key_color(int keycode, t_param *param);
+int					key_default(int keycode, t_param *param);
 /*
 **		error manangement
 */

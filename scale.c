@@ -61,14 +61,14 @@ int				count_max_z(t_node *node)
 	t_node		*line;
 
 	i = 0;
-	count[0] = node->current.z;
+	count[0] = node->prime.z;
 	while (node)
 	{
 		line = node;
 		while (line)
 		{
-			if ((check_count(count, i, line->current.z)) != 0)
-				count[++i] = line->current.z;
+			if ((check_count(count, i, line->prime.z)) != 0)
+				count[++i] = line->prime.z;
 			line = line->right;
 		}
 		node = node->down;

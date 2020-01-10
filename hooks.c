@@ -16,12 +16,32 @@ int		key_press(int keycode, t_param *param)
 {
 	if ((key_exit(keycode)) || (key_rot(keycode, param)) ||
 			(key_move(keycode, param)) || (key_color(keycode, param))
-			|| (key_size(keycode, param)))
+			|| (key_size(keycode, param)) || (key_default(keycode, param)))
 		;
 	mlx_clear_window(param->mlx_ptr, param->win_ptr);
 	rotate_map(param);
 	print_map(param);
 	printf("%d\n", keycode);
+	return (0);
+}
+
+int		mouse_scroll(int button,int x, int y, t_param *param)//неплохо бы ещё внутрь по позиции мыши погружаться
+{
+	if (button == 5)
+	{
+		param->scale.y++;
+		param->scale.x++;
+	}
+	if (button == 4 && param->scale.y > 1)
+	{
+		param->scale.y--;
+		param->scale.x--;
+	}
+//	param->scale.z++;
+	mlx_clear_window(param->mlx_ptr, param->win_ptr);
+	rotate_map(param);
+	print_map(param);
+//	printf("ff");
 	return (0);
 }
 
@@ -35,6 +55,8 @@ int		mouse_move(int x, int y, t_param *param)
 
 int		mouse_press(int button, int x, int y, t_param *param)
 {
+//	if (button == 4)
+//		printf("ff");
 	// if (button == 1) {
 	//     param->mouse_pressed = 1;
 	//     // mlx_pixel_put(param->mlx_ptr, param->win_ptr, x, y, 0xFFFFFF);

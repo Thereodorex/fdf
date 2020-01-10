@@ -64,6 +64,7 @@ int     main(int argc, char **argv)
     mlx_hook(param.win_ptr, 17, 0, close_fdf, &param);
     mlx_hook(param.win_ptr, 4, 0, mouse_press, &param);
     mlx_hook(param.win_ptr, 5, 0, mouse_release, &param);
+	mlx_hook(param.win_ptr, 4, 0, mouse_scroll, &param);
     mlx_hook(param.win_ptr, 6, 0, mouse_move, &param);
     mlx_loop(param.mlx_ptr);
     return (0);

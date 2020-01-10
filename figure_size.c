@@ -74,7 +74,6 @@ void	figure_scale(t_node *node, t_coord *indent, t_coord *scale)
 	int		cur;
 	int		interval;
 
-	scale->z = count_scale_z(node, SIZE_WINDOW);
 	max = count_scale_x(node);
 	indent->x = INDENT;
 	indent->y = INDENT;
@@ -90,4 +89,5 @@ void	figure_scale(t_node *node, t_coord *indent, t_coord *scale)
 	}
 	scale->y = interval;
 	scale->x = interval;
+	scale->z = count_scale_z(node, SIZE_WINDOW);
 }
