@@ -22,7 +22,6 @@ int		key_press(int keycode, t_param *param)
 	mlx_clear_window(param->mlx_ptr, param->win_ptr);
 	rotate_map(param);
 	print_map(param);
-	printf("%d\n", keycode);
 	return (0);
 }
 

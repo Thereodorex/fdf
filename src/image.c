@@ -12,15 +12,31 @@
 
 #include "../includes/header.h"
 
-void		ft_bzero(void *s, size_t n)
+int			fill_menu(t_param *param)
 {
-	size_t	a;
-	char	*my_s;
+	int		i;
+	int		j;
+	int		mask;
 
-	a = 0;
-	my_s = (char *)s;
-	while (a < n)
-		my_s[a++] = '\0';
+	i = 0;
+	j = 0;
+	mask = 0xFF000000;
+	while (i < SIZE_MENU)
+	{
+		while (i < SIZE_MENU - 100 && mask > 0x88000000)
+		{
+			while (j < SIZE_WINDOW)
+				image_set_pixel(&param->menu, i, j++, 0x00CCAAFF | mask);
+			mask = mask - 0x01000000;
+			j = 0;
+			i++;
+		}
+		while (j < SIZE_WINDOW)
+			image_set_pixel(&param->menu, i, j++, 0x88DDAAFF);
+		j = 0;
+		i++;
+	}
+	return (0);
 }
 
 void		clear_image(t_image *image, unsigned long size)

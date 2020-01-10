@@ -19,6 +19,7 @@
 # include <math.h>
 # include "mlx.h"
 # include "keycode_fdf.h"
+# include "../libft/libft.h"
 
 /*
 **		map size
@@ -126,5 +127,8 @@ int					close_fdf(void *param);
 **		from libft
 */
 void				ft_bzero(void *s, size_t n);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_itoa(int n);
+char				*lf_conversion(double get_d);
 
 #endif
