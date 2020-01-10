@@ -23,8 +23,8 @@ void	print_map(t_param *param)
 		node = line;
 		while (node)
 		{
-			if ((node->current.x < 0 && node->current.y < 0)
-			|| (node->current.x >= SIZE_WINDOW && node->current.y >= SIZE_WINDOW))
+			if ((node->current.x < 0 && node->current.y < 0) ||
+			(node->current.x >= SIZE_WINDOW && node->current.y >= SIZE_WINDOW))
 				break ;
 			if (node->down)
 				put_line(node->current, node->down->current, param);
@@ -49,25 +49,25 @@ void	open_win(t_param *param, char *filename)
 			param->max_size, "mlx_start");
 }
 
-int     main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-    t_param     param;
+	t_param		param;
 
-    if (argc == 1)
-    	fdf_error(NO_ARG);
-    open_win(&param, argv[1]);
-    create_img(&param);
+	if (argc == 1)
+		fdf_error(NO_ARG);
+	open_win(&param, argv[1]);
+	create_img(&param);
 	figure_scale(param.map, &param.indent, &param.scale);
-	if (param.map->current.color != 0x00FFFF00 && param.map->current.color != 0x00FF00FF)
+	if (param.map->current.color != 0x00FFFF00
+	&& param.map->current.color != 0x00FF00FF)
 		param.high_base_color = -1;
 	print_map(&param);
-    mlx_put_image_to_window(param.mlx_ptr, param.win_ptr, param.image->data_addr, 0, 0);
-    mlx_hook(param.win_ptr, 2, 0, key_press, &param);
-    mlx_hook(param.win_ptr, 17, 0, close_fdf, &param);
-    mlx_hook(param.win_ptr, 4, 0, mouse_press, &param);
-    mlx_hook(param.win_ptr, 5, 0, mouse_release, &param);
+	mlx_hook(param.win_ptr, 2, 0, key_press, &param);
+	mlx_hook(param.win_ptr, 17, 0, close_fdf, &param);
+	mlx_hook(param.win_ptr, 4, 0, mouse_press, &param);
+	mlx_hook(param.win_ptr, 5, 0, mouse_release, &param);
 	mlx_hook(param.win_ptr, 4, 0, mouse_scroll, &param);
-    mlx_hook(param.win_ptr, 6, 0, mouse_move, &param);
-    mlx_loop(param.mlx_ptr);
-    return (0);
+	mlx_hook(param.win_ptr, 6, 0, mouse_move, &param);
+	mlx_loop(param.mlx_ptr);
+	return (0);
 }

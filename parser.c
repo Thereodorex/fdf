@@ -59,28 +59,28 @@ char		*parse_node(t_node *left, t_node *up, t_node *current, char *ptr)
 {
 	current = !(current) ? (t_node *)malloc(sizeof(t_node)) : current;
 	current->down = NULL;
-	if (!(ptr = get_num(ptr, &current->current)))
+	if (!(ptr = get_num(ptr, &current->prime)))
 		return (NULL);//утечки!!!
 	if (left)
 	{
 		left->right = current;
-		current->current.x = left->current.x + 1;
+		current->prime.x = left->prime.x + 1;
 	}
 	else
-		current->current.x = 0;
+		current->prime.x = 0;
 	if (up)
 	{
 		up->down = current;
-		current->current.y = up->current.y + 1;
+		current->prime.y = up->prime.y + 1;
 	}
 	else
-		current->current.y = 0;
+		current->prime.y = 0;
 	if (*ptr == '\n')
 	{
 		current->right = NULL;
 		return (ptr + 1);
 	}
-	current->prime = current->current;
+	current->prime = current->prime;
 	return (parse_node(current, up ? up->right : NULL, NULL, ptr));
 }
 
@@ -113,9 +113,17 @@ t_node		*parse_file(char *filename)
 	head = NULL;
 	fd = open(filename, O_RDONLY);
 	if (fd < 3 || !(text = read_file(fd)))
+	{
+		if (fd != -1)
+			close(fd);
 		fdf_error(NOT_A_MAP);
+	}
 	if (!(head = parse_line(NULL, text)))
+	{
+		free(text);
 		fdf_error(ERROR_MAP);
+	}
 	close(fd);
+	free(text);
 	return (head);
 }

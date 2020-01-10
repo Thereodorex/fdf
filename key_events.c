@@ -12,10 +12,14 @@
 
 #include "header.h"
 
-int		key_exit(int keycode)
+int		key_exit(int keycode, t_param *param)
 {
-	if (keycode == ESCAPE)//утечки!!!!!!
+	if (keycode == ESCAPE)
+	{
+		clear_node(&(param->map));
+		mlx_destroy_image(param->mlx_ptr, param->image->data_addr);
 		exit(0);
+	}
 	return (0);
 }
 
@@ -65,6 +69,7 @@ int		key_default(int keycode, t_param *param)
 	param->x_rot = 0;
 	param->y_rot = 0;
 	param->z_rot = 0;
+	figure_scale(param->map, &param->indent, &param->scale);
 	return (1);
 }
 

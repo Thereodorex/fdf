@@ -20,8 +20,8 @@ int		get_count_line(t_node *node, int interval, int indent_x, int indent_y)
 	i = 0;
 	while (node)
 	{
+		node->current = node->prime;
 		node->current.x = i;
-		node->prime = node->current;
 		node->current.x = i * interval + indent_x;
 		node->current.y = j * interval + indent_y;
 		node = node->right;
@@ -53,15 +53,17 @@ int		count_interval(t_node *node, int *x_indent, int *y_indent)
 	max_leight = SIZE_WINDOW - (*x_indent * 2);
 	x_max = count_scale_x(node);
 	y_max = count_scale_y(node);
-	if (x_max > y_max)
+	if (x_max > y_max && x_max <= SIZE_WINDOW)
 	{
-		if ((interval = count_figure_interval(x_max, &max_leight)) == 2)
+		if ((interval = count_figure_interval(x_max, &max_leight)) == 2
+		&& x_max >= SIZE_WINDOW)
 			return (2);
 		*x_indent = (SIZE_WINDOW - max_leight) / 2;
 		*y_indent = *x_indent + interval * (x_max - y_max) / 2;
 		return (interval);
 	}
-	if ((interval = count_figure_interval(y_max, &max_leight)) == 2)
+	if ((interval = count_figure_interval(y_max, &max_leight)) == 2 &&
+			y_max >= SIZE_WINDOW)
 		return (2);
 	*y_indent = (SIZE_WINDOW - max_leight) / 2;
 	*x_indent = *y_indent + interval * (y_max - x_max) / 2;

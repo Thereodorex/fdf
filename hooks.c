@@ -14,7 +14,7 @@
 
 int		key_press(int keycode, t_param *param)
 {
-	if ((key_exit(keycode)) || (key_rot(keycode, param)) ||
+	if ((key_exit(keycode, param)) || (key_rot(keycode, param)) ||
 			(key_move(keycode, param)) || (key_color(keycode, param))
 			|| (key_size(keycode, param)) || (key_default(keycode, param)))
 		;
@@ -41,7 +41,6 @@ int		mouse_scroll(int button,int x, int y, t_param *param)//неплохо бы 
 	mlx_clear_window(param->mlx_ptr, param->win_ptr);
 	rotate_map(param);
 	print_map(param);
-//	printf("ff");
 	return (0);
 }
 

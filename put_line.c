@@ -46,7 +46,7 @@ void			put_line(t_coord one, t_coord two, t_param *prm)
 	if (delta.y < delta.x)
 		while (new.x != two.x)
 		{
-            image_set_pixel(&prm->image, new.x, new.y, new.color);
+			image_set_pixel(&prm->image, new.x, new.y, new.color);
 			get_next_coordinate(delta.x, direction.y, delta.y, &new.y);
 			new.x += direction.x;
 			new.color = find_gradient(new, one, two, delta);
@@ -54,7 +54,7 @@ void			put_line(t_coord one, t_coord two, t_param *prm)
 	else
 		while (new.y != two.y)
 		{
-            image_set_pixel(&prm->image, new.x, new.y, new.color);
+			image_set_pixel(&prm->image, new.x, new.y, new.color);
 			get_next_coordinate(delta.y, direction.x, delta.x, &new.x);
 			new.y += direction.y;
 			new.color = find_gradient(new, one, two, delta);
