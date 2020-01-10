@@ -111,7 +111,7 @@ int					mouse_scroll(int button, int x, int y, t_param *param);
 **		error manangement
 */
 void				fdf_error(int code);
-void				clear_node(t_node **arr);
+char				*clear_node(t_node **arr);
 int					close_fdf(void *param);
 /*
 **		from libft

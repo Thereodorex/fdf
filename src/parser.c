@@ -60,7 +60,7 @@ char		*parse_node(t_node *left, t_node *up, t_node *current, char *ptr)
 	current = !(current) ? (t_node *)malloc(sizeof(t_node)) : current;
 	current->down = NULL;
 	if (!(ptr = get_num(ptr, &current->prime)))
-		return (NULL);
+		return (clear_node(&current));
 	if (left)
 	{
 		left->right = current;
@@ -89,14 +89,23 @@ t_node		*parse_line(t_node *up, char *ptr)
 	t_node		*start_line;
 
 	if (!ptr)
+	{
+		clear_node(&up);
 		return (NULL);
+	}
 	start_line = (t_node *)malloc(sizeof(t_node));
 	if (!(ptr = parse_node(NULL, up, start_line, ptr)))
+	{
+		clear_node(&start_line);
 		return (NULL);
+	}
 	if (*ptr != '\0')
 	{
 		if (!(start_line->down = parse_line(start_line, ptr)))
+		{
+			clear_node(&start_line);
 			return (NULL);
+		}
 	}
 	else
 		start_line->down = NULL;
@@ -121,6 +130,7 @@ t_node		*parse_file(char *filename)
 	if (!(head = parse_line(NULL, text)))
 	{
 		free(text);
+		close(fd);
 		fdf_error(ERROR_MAP);
 	}
 	close(fd);

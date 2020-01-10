@@ -12,7 +12,7 @@
 
 #include "../includes/header.h"
 
-void	clear_node(t_node **arr)
+char	*clear_node(t_node **arr)
 {
 	t_node	*temp;
 	t_node	*temp_line;
@@ -30,4 +30,5 @@ void	clear_node(t_node **arr)
 		}
 		*arr = temp_arr;
 	}
+	return (NULL);
 }

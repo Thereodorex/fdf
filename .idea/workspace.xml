@@ -10,25 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1363843a-9fd7-4036-9a35-1faa8b149fc2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/1" beforeDir="false" afterPath="$PROJECT_DIR$/1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/change_color.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clean.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf_error.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/figure_size.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_gradient.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/key_events.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycode_fdf.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/put_line.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_map.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/record_color.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rotate.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scale.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clean.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/clean.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,17 +31,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/hooks.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+                <state>
+                  <caret column="23" selection-start-column="23" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/put_line.c">
+            <entry file="file://$PROJECT_DIR$/src/image.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+                <state>
+                  <caret column="33" selection-start-column="33" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -97,7 +82,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/fdf_error.c">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="240">
@@ -106,29 +91,29 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/key_events.c">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/includes/header.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+                <state relative-caret-position="957">
+                  <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main.c">
+            <entry file="file://$PROJECT_DIR$/maps/colors/julia.fdf">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+                <state relative-caret-position="90">
+                  <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/parser.c">
+            <entry file="file://$PROJECT_DIR$/src/clean.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+                <state relative-caret-position="480">
+                  <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -137,11 +122,20 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/1">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="645">
-                  <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+                <state relative-caret-position="240">
+                  <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/parser.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="574">
+                  <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
                 </state>
               </provider>
             </entry>
@@ -203,15 +197,11 @@
         <option value="$PROJECT_DIR$/key_events.c" />
         <option value="$PROJECT_DIR$/parser.c" />
         <option value="$PROJECT_DIR$/figure_size.c" />
-        <option value="$PROJECT_DIR$/src/clean.c" />
         <option value="$PROJECT_DIR$/src/change_color.c" />
         <option value="$PROJECT_DIR$/src/figure_size.c" />
         <option value="$PROJECT_DIR$/src/get_gradient.c" />
-        <option value="$PROJECT_DIR$/src/hooks.c" />
-        <option value="$PROJECT_DIR$/src/image.c" />
         <option value="$PROJECT_DIR$/src/key_events.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
-        <option value="$PROJECT_DIR$/src/parser.c" />
         <option value="$PROJECT_DIR$/src/put_line.c" />
         <option value="$PROJECT_DIR$/src/read_map.c" />
         <option value="$PROJECT_DIR$/src/record_color.c" />
@@ -219,6 +209,12 @@
         <option value="$PROJECT_DIR$/src/scale.c" />
         <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/src/fdf_error.c" />
+        <option value="$PROJECT_DIR$/src/hooks.c" />
+        <option value="$PROJECT_DIR$/src/image.c" />
+        <option value="$PROJECT_DIR$/maps/colors/julia.fdf" />
+        <option value="$PROJECT_DIR$/src/clean.c" />
+        <option value="$PROJECT_DIR$/includes/header.h" />
+        <option value="$PROJECT_DIR$/src/parser.c" />
       </list>
     </option>
   </component>
@@ -255,6 +251,17 @@
               <item name="fdf" type="b2602c69:ProjectViewProjectNode" />
               <item name="fdf" type="462c0819:PsiDirectoryNode" />
               <item name="includes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fdf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fdf" type="462c0819:PsiDirectoryNode" />
+              <item name="maps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fdf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fdf" type="462c0819:PsiDirectoryNode" />
+              <item name="maps" type="462c0819:PsiDirectoryNode" />
+              <item name="colors" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fdf" type="b2602c69:ProjectViewProjectNode" />
@@ -318,12 +325,12 @@
       <workItem from="1578595960365" duration="9229000" />
       <workItem from="1578611989196" duration="8736000" />
       <workItem from="1578652322847" duration="2171000" />
-      <workItem from="1578660734209" duration="1285000" />
+      <workItem from="1578660734209" duration="4126000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74084000" />
+    <option name="totallyTimeSpent" value="76925000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1337" extended-state="6" />
@@ -353,20 +360,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../printf/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../printf/libft/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../upd_fdf/record_color.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -571,13 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/clean.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/change_color.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -585,28 +571,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/key_events.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
@@ -621,13 +586,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/get_gradient.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hooks.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
@@ -669,13 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scale.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -683,10 +634,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/hooks.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/image.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/fdf_error.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maps/colors/julia.fdf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/clean.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/header.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="957">
+          <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
         </state>
       </provider>
     </entry>
