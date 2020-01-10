@@ -16,7 +16,8 @@ int		key_press(int keycode, t_param *param)
 {
 	if ((key_exit(keycode, param)) || (key_rot(keycode, param)) ||
 			(key_move(keycode, param)) || (key_color(keycode, param))
-			|| (key_size(keycode, param)) || (key_default(keycode, param)))
+			|| (key_size(keycode, param)) || (key_default(keycode, param))
+			|| (key_menu(keycode, param)))
 		;
 	mlx_clear_window(param->mlx_ptr, param->win_ptr);
 	rotate_map(param);

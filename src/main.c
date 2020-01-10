@@ -36,7 +36,9 @@ void	print_map(t_param *param)
 	}
 	mlx_put_image_to_window(param->mlx_ptr, param->win_ptr,
 			param->image->image, 0, 0);
-	clear_image(param->image);
+	if (param->open_menu == 0)
+		put_menu(param);
+	clear_image(param->image, SIZE_WINDOW * SIZE_WINDOW * 4);
 }
 
 void	open_win(t_param *param, char *filename)
@@ -61,6 +63,7 @@ int		main(int argc, char **argv)
 	if (param.map->current.color != 0x00FFFF00
 	&& param.map->current.color != 0x00FF00FF)
 		param.high_base_color = -1;
+	fill_menu(&param);
 	print_map(&param);
 	mlx_hook(param.win_ptr, 2, 0, key_press, &param);
 	mlx_hook(param.win_ptr, 17, 0, close_fdf, &param);

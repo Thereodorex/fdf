@@ -23,10 +23,9 @@ void		ft_bzero(void *s, size_t n)
 		my_s[a++] = '\0';
 }
 
-void		clear_image(t_image *image)
+void		clear_image(t_image *image, unsigned long size)
 {
-	ft_bzero(image->data_addr, SIZE_WINDOW * SIZE_WINDOW *
-								4);
+	ft_bzero(image->data_addr, size);
 }
 
 void		image_set_pixel(t_image **image, int x, int y, int color)
@@ -52,5 +51,13 @@ void		create_img(t_param *param)
 											&(param->image->bits_per_pixel),
 											&(param->image->size_line),
 											&(param->image->endian));
-	clear_image(param->image);
+	clear_image(param->image, SIZE_WINDOW * SIZE_WINDOW * 4);
+	param->menu = (t_image *)malloc(sizeof(t_image));
+	param->menu->image = mlx_new_image(param->mlx_ptr, SIZE_MENU,
+										SIZE_WINDOW);
+	param->menu->data_addr = mlx_get_data_addr(param->menu->image,
+											&(param->menu->bits_per_pixel),
+											&(param->menu->size_line),
+											&(param->menu->endian));
+	clear_image(param->menu, SIZE_WINDOW * SIZE_MENU * 4);
 }

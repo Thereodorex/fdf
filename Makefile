@@ -8,7 +8,7 @@ FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
 
 SRCS = main.c figure_size.c hooks.c read_map.c scale.c fdf_error.c \
 		parser.c put_line.c record_color.c rotate.c key_events.c \
-		clean.c change_color.c get_gradient.c image.c \
+		clean.c change_color.c get_gradient.c image.c fdf_menu.c \
 
 OBJ = ${SRCS:c=o}
 

@@ -18,6 +18,7 @@ int		key_exit(int keycode, t_param *param)
 	{
 		clear_node(&(param->map));
 		mlx_destroy_image(param->mlx_ptr, param->image->data_addr);
+//		mlx_destroy_image(param->mlx_ptr, param->menu->data_addr);
 		exit(0);
 	}
 	return (0);

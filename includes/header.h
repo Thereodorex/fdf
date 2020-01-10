@@ -25,6 +25,7 @@
 */
 # define INDENT			15
 # define SIZE_WINDOW	1300
+# define SIZE_MENU		400
 
 /*
 **		error management
@@ -75,6 +76,8 @@ typedef struct		s_param
 	t_coord			indent;
 	int				max_size;
 	t_image			*image;
+	t_image			*menu;
+	int 			open_menu;
 }					t_param;
 
 void				put_line(t_coord first, t_coord second, t_param *prm);
@@ -95,8 +98,14 @@ int					count_scale_z(t_node *node, int max_size);
 int					count_scale_x(t_node *node);
 int					count_scale_y(t_node *node);
 void				image_set_pixel(t_image **image, int x, int y, int color);
-void				clear_image(t_image *image);
+void				clear_image(t_image *image, unsigned long  size);
 void				create_img(t_param *param);
+/*
+**		menu
+*/
+int 				fill_menu(t_param *param);
+int					key_menu(int keycode, t_param *param);
+void				put_menu(t_param *param);
 /*
 **		key events
 */
