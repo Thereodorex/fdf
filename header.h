@@ -95,9 +95,9 @@ int					find_gradient(t_coord current, t_coord start,
 int					count_scale_z(t_node *node, int max_size);
 int					count_scale_x(t_node *node);
 int					count_scale_y(t_node *node);
-void				image_set_pixel(t_image *image, int x, int y, int color);
+void				image_set_pixel(t_image **image, int x, int y, int color);
 void				clear_image(t_image *image);
-void		create_img(t_param param);
+void				create_img(t_param *param);
 /*
 **		key events
 */

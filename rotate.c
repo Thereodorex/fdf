@@ -28,6 +28,11 @@ void	prepare_cur_point(double *x, double *y, double *z, t_coord *coord)
 	*z = (double)coord->z;
 }
 
+void	count_rotate_matrix(t_node *node, t_param *param)
+{
+
+}
+
 void	rotate_node(t_node *node, t_param *param)
 {
 	double		x;

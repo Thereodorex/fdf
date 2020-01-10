@@ -32,36 +32,31 @@ static int		get_next_coordinate(int delta, int dirx,
 	return (1);
 }
 
-void			put_line(t_coord frst, t_coord sec, t_param *prm)
+void			put_line(t_coord one, t_coord two, t_param *prm)
 {
 	t_coord		delta;
 	t_coord		direction;
 	t_coord		new;
 
-	new = frst;
-	delta.x = sec.x - frst.x < 0 ? frst.x - sec.x : sec.x - frst.x;
-	delta.y = sec.y - frst.y < 0 ? frst.y - sec.y : sec.y - frst.y;
-	direction.y = sec.y > frst.y ? 1 : -1;
-	direction.x = sec.x > frst.x ? 1 : -1;
+	new = one;
+	delta.x = two.x - one.x < 0 ? one.x - two.x : two.x - one.x;
+	delta.y = two.y - one.y < 0 ? one.y - two.y : two.y - one.y;
+	direction.y = two.y > one.y ? 1 : -1;
+	direction.x = two.x > one.x ? 1 : -1;
 	if (delta.y < delta.x)
-		while (new.x != sec.x)
+		while (new.x != two.x)
 		{
-//			mlx_get_color_value(prm->image->data_addr, new.color);
-//			prm->image->data_addr[new.x * new.y] = new.color;
-//            image_set_pixel(prm->image, new.x, new.y, new.color);
-			mlx_pixel_put(prm->mlx_ptr, prm->win_ptr, new.x, new.y, new.color);
+            image_set_pixel(&prm->image, new.x, new.y, new.color);
 			get_next_coordinate(delta.x, direction.y, delta.y, &new.y);
 			new.x += direction.x;
-			new.color = find_gradient(new, frst, sec, delta);
+			new.color = find_gradient(new, one, two, delta);
 		}
 	else
-		while (new.y != sec.y)
+		while (new.y != two.y)
 		{
-//			prm->image->data_addr[new.x * new.y] = new.color;
-//            image_set_pixel(prm->image, new.x, new.y, new.color);
-			mlx_pixel_put(prm->mlx_ptr, prm->win_ptr, new.x, new.y, new.color);
+            image_set_pixel(&prm->image, new.x, new.y, new.color);
 			get_next_coordinate(delta.y, direction.x, delta.x, &new.x);
 			new.y += direction.y;
-			new.color = find_gradient(new, frst, sec, delta);
+			new.color = find_gradient(new, one, two, delta);
 		}
 }

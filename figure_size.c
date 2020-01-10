@@ -55,12 +55,14 @@ int		count_interval(t_node *node, int *x_indent, int *y_indent)
 	y_max = count_scale_y(node);
 	if (x_max > y_max)
 	{
-		interval = count_figure_interval(x_max, &max_leight);
+		if ((interval = count_figure_interval(x_max, &max_leight)) == 2)
+			return (2);
 		*x_indent = (SIZE_WINDOW - max_leight) / 2;
 		*y_indent = *x_indent + interval * (x_max - y_max) / 2;
 		return (interval);
 	}
-	interval = count_figure_interval(y_max, &max_leight);
+	if ((interval = count_figure_interval(y_max, &max_leight)) == 2)
+		return (2);
 	*y_indent = (SIZE_WINDOW - max_leight) / 2;
 	*x_indent = *y_indent + interval * (y_max - x_max) / 2;
 	return (interval);
