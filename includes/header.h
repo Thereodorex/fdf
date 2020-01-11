@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcorwin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amargy <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/08 16:02:31 by jcorwin           #+#    #+#             */
-/*   Updated: 2019/12/08 16:02:35 by jcorwin          ###   ########.fr       */
+/*   Created: 2019/12/08 16:02:31 by amargy            #+#    #+#             */
+/*   Updated: 2019/12/08 16:02:35 by amargy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,13 @@ typedef struct		s_param
 	int				max_size;
 	t_image			*image;
 	t_image			*menu;
-	int 			open_menu;
+	int				open_menu;
 }					t_param;
 
 void				put_line(t_coord first, t_coord second, t_param *prm);
 t_node				*parse_file(char *filename);
 void				figure_scale(t_node *node, t_coord *indent, t_coord *scale);
 void				print_map(t_param *param);
-int					close_fdf(void *param);
 int					key_press(int keycode, t_param *param);
 int					mouse_move(int x, int y, t_param *param);
 int					mouse_press(int button, int x, int y, t_param *param);
@@ -99,12 +98,12 @@ int					count_scale_z(t_node *node, int max_size);
 int					count_scale_x(t_node *node);
 int					count_scale_y(t_node *node);
 void				image_set_pixel(t_image **image, int x, int y, int color);
-void				clear_image(t_image *image, unsigned long  size);
+void				clear_image(t_image *image, unsigned long size);
 void				create_img(t_param *param);
 /*
 **		menu
 */
-int 				fill_menu(t_param *param);
+int					fill_menu(t_param *param);
 int					key_menu(int keycode, t_param *param);
 void				put_menu(t_param *param);
 /*
@@ -122,7 +121,7 @@ int					mouse_scroll(int button, int x, int y, t_param *param);
 */
 void				fdf_error(int code);
 char				*clear_node(t_node **arr);
-int					close_fdf(void *param);
+int					close_fdf(t_param *param);
 /*
 **		from libft
 */

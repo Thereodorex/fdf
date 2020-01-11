@@ -82,6 +82,7 @@ int				count_scale_z(t_node *node, int max_size)
 	int		y;
 	int		max_z;
 
+	max_z = 0;
 	x = count_scale_x(node);
 	y = count_scale_y(node);
 	max_size = max_size / 100;

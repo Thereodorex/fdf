@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcorwin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amargy <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/08 16:02:48 by jcorwin           #+#    #+#             */
-/*   Updated: 2019/12/08 16:02:50 by jcorwin          ###   ########.fr       */
+/*   Created: 2019/12/08 16:02:48 by amargy            #+#    #+#             */
+/*   Updated: 2019/12/08 16:02:50 by amargy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ void	prepare_cur_point(double *x, double *y, double *z, t_coord *coord)
 	*x = (double)coord->x;
 	*y = (double)coord->y;
 	*z = (double)coord->z;
-}
-
-void	count_rotate_matrix(t_node *node, t_param *param)
-{
-	;
 }
 
 void	rotate_node(t_node *node, t_param *param)

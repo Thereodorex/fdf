@@ -41,6 +41,7 @@ char			*record_color(char *ptr, int *color)
 	int		res;
 	char	*to_return;
 
+	to_return = NULL;
 	res = 0;
 	ptr += 2;
 	while (*ptr && *ptr != ' ' && *ptr != '\n')

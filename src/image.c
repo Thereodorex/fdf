@@ -14,9 +14,9 @@
 
 int			fill_menu(t_param *param)
 {
-	int		i;
-	int		j;
-	int		mask;
+	int				i;
+	int				j;
+	unsigned int	mask;
 
 	i = 0;
 	j = 0;
@@ -58,8 +58,6 @@ void		image_set_pixel(t_image **image, int x, int y, int color)
 
 void		create_img(t_param *param)
 {
-	t_image		*image;
-
 	param->image = (t_image *)malloc(sizeof(t_image));
 	param->image->image = mlx_new_image(param->mlx_ptr,
 											SIZE_WINDOW, SIZE_WINDOW);

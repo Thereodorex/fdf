@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcorwin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amargy <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/08 16:02:48 by jcorwin           #+#    #+#             */
-/*   Updated: 2019/12/08 16:02:50 by jcorwin          ###   ########.fr       */
+/*   Created: 2019/12/08 16:02:48 by amargy            #+#    #+#             */
+/*   Updated: 2019/12/08 16:02:50 by amargy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ t_node		*parse_file(char *filename)
 	t_node		*head;
 	int			fd;
 	char		*text;
-	int			len;
 
+	text = NULL;
 	head = NULL;
 	fd = open(filename, O_RDONLY);
 	if (fd < 3 || !(text = read_file(fd)))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcorwin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amargy <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/08 16:02:48 by jcorwin           #+#    #+#             */
-/*   Updated: 2019/12/08 16:02:50 by jcorwin          ###   ########.fr       */
+/*   Created: 2019/12/08 16:02:48 by amargy            #+#    #+#             */
+/*   Updated: 2019/12/08 16:02:50 by amargy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	open_win(t_param *param, char *filename)
 	param->map = parse_file(filename);
 	param->mlx_ptr = mlx_init();
 	param->win_ptr = mlx_new_window(param->mlx_ptr, param->max_size,
-			param->max_size, "mlx_start");
+			param->max_size, filename);
 }
 
 int		main(int argc, char **argv)
@@ -67,10 +67,7 @@ int		main(int argc, char **argv)
 	print_map(&param);
 	mlx_hook(param.win_ptr, 2, 0, key_press, &param);
 	mlx_hook(param.win_ptr, 17, 0, close_fdf, &param);
-	mlx_hook(param.win_ptr, 4, 0, mouse_press, &param);
-	mlx_hook(param.win_ptr, 5, 0, mouse_release, &param);
 	mlx_hook(param.win_ptr, 4, 0, mouse_scroll, &param);
-	mlx_hook(param.win_ptr, 6, 0, mouse_move, &param);
 	mlx_loop(param.mlx_ptr);
 	return (0);
 }

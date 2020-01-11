@@ -1,5 +1,5 @@
 NAME = fdf
-CC = gcc
+CC = gcc -Wall -Wextra -Werror
 SRC_DIR = ./src/
 OBJ_DIR = obj/
 LIBFT_DIR = libft/

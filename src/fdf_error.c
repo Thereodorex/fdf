@@ -12,8 +12,14 @@
 
 #include "../includes/header.h"
 
-int			close_fdf(void *param)
+int			close_fdf(t_param *param)
 {
+	clear_node(&(param->map));
+	mlx_destroy_image(param->mlx_ptr, param->image->data_addr);
+	free(param->image);
+	clear_image(param->menu, SIZE_MENU * SIZE_WINDOW * 4);
+	mlx_destroy_image(param->mlx_ptr, param->menu->data_addr);
+	free(param->menu);
 	exit(0);
 }
 
